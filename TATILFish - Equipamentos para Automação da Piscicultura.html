@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>TATILFish - Equipamentos para Automação da Piscicultura</title>
+	<meta name="keywords" content="aquicultura, piscicultura, automação, equipamentos, tecnologia">
+	<meta name="description" content="A plataforma TATILFish automatiza o monitoramento e controle dos equipamentos essenciais para a piscicultura.">
+	<meta name="revisit-after" content="7 days">
+	<meta name="robots" content="all">
+	<meta name="theme-color" content="#275976">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.5">
+	<meta property="og:image" content="https://tatilfish.com.br/imagens/logo-tatilfish.png">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link href="https://fonts.googleapis.com/css?family=Exo:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<!-- <script src="https://www.youtube.com/iframe_api"></script> -->
+	<script src="https://code.iconify.design/1/1.0.0/iconify.min.js"></script>
+	<script src="js/html5.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mask.js"></script>
+	<script src="js/tatilfish.js"></script>
+	<script>
+		$(function(){
+
+			// setTimeout(function() { 
+		    //     $("#resposta").focus();
+		    //     console.log('Timeout!');
+		    // }, 100);
+
+			if($(window).scrollTop() > 0){
+				$('.logo').addClass('menor');
+			}else{
+				$('.logo').removeClass('menor');
+			}
+
+			$(window).scroll(function(){
+				if($(this).scrollTop() > 0){
+					$('.logo').addClass('menor');
+				}else{
+					$('.logo').removeClass('menor');
+				}
+			});
+
+			$('#saibacomo').click(function(){
+				var rolagem = $('.valor').height();
+				var topo = $('header').height();
+				var body = $("html, body");
+				body.stop().animate({scrollTop:(rolagem - topo)}, 500, 'swing', function() {});
+			});
+			
+			$('#telefone').mask('(00) 00000-0000');
+			$('form').submit(function(e){
+				e.preventDefault();
+				$(this).find('button, input, textarea, select').attr('disabled', true);
+				var assunto     = $('#assunto').val();
+				var empresa      = $('#empresa').val();
+				var nome        = $('#nome').val();
+				var email       = $('#email').val();
+				var telefone    = $('#telefone').val();
+				var cidade      = $('#cidade').val();
+				var estado      = $('#estado').val();
+				var tipoviveiro = $('#tipoviveiro').val();
+				var mensagem    = $('#mensagem').val();
+				var email       = $('#email').val();
+				var resposta    = $('#resposta').val();
+				
+				if(empresa == ""){
+
+					console.log("envia form");
+					
+					if(nome != "" && telefone != "" && estado != ""){
+						$.ajax({
+							url: 'envia-email.php',
+						    type: 'POST',
+						    data: { valida : empresa, assunto : assunto, nome : nome, email : email, telefone : telefone, cidade : cidade, estado : estado, tipoviveiro : tipoviveiro, mensagem : mensagem, email : email, resposta : resposta},
+						    timeout: 10000,
+						    beforeSend: function(){},
+						    success: function (data){
+						        if(data == 'true'){
+						        	$('form').find('button, input, textarea, select').attr('disabled', false);
+						        	$('#cidade').removeClass('invalido');
+						        	$('#telefone').removeClass('invalido');
+						        	$('#estado').removeClass('invalido');
+						        	alert('A equipe TATILFish agradece o seu interesse. Logo retornaremos!');
+									$('#nome').val('');
+									$('#email').val('');
+									$('#telefone').val('');
+									$('#cidade').val('');
+									$('#estado').val('');
+									$('#tipoviveiro').val('');
+									$('#mensagem').val('');
+									ga('send', 'event', 'button', 'click', 'Registro de Interesse');
+						        }
+						    },
+						    error: function(XMLHttpRequest, textStatus, errorThrown){
+						        console.log(textStatus);
+						    }
+						});
+					}else{
+
+						$(this).find('button, input, textarea').attr('disabled', false);
+				        if(estado == ""){
+				        	$('#estado').addClass('invalido').focus();
+				        }
+				        if(telefone == ""){
+				        	$('#telefone').addClass('invalido').focus();
+				        }
+				        if(nome == ""){
+				        	$('#nome').addClass('invalido').focus();
+				        }
+
+					}
+				}else{
+					
+					console.log("não enviado");
+					$(this).find('button, input, textarea').attr('disabled', false);
+
+				}
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 class="oculto">TATILFish - <strong>Equipamentos</strong> para <strong>Automação</strong> Monitorada da <strong>Piscicultura</strong></h1>
+			<img class="logo" src="imagens/logo-tatilfish.png" alt="Logo TATILFish">
+		</div>
+	</header>
+	<main>
+		<section class="valor">
+			<h2>A <strong>TATILFish</strong> auxilia o produtor a obter <strong>Sucesso</strong> na <strong>Piscicultura</strong></h2>
+			<a class="navegacao" id="saibacomo">Saiba Como<i class="fas fa-chevron-down"></i></a>
+		</section>
+		<section class="resumo">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<!-- <h2 class="text-center">A TATILFish proporciona segurança e economia de recursos na Piscicultura, tornando assim a produção mais eficiente e competitiva.</h2>	 -->
+						<h2 class="text-center">A TATILFish proporciona segurança e economia de recursos na 
+						<strong>Piscicultura</strong></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 text-center">
+						<h3>Controle Automático de Aeração</h3>
+						<p>Monitorando o Oxigênio Dissolvido, a plataforma automatiza o funcionamento dos aeradores, proporcionando maior segurança e otimizando o ambiente produtivo.</p>
+					</div>
+					<div class="col-md-6 text-center">
+						<h3>Controle Automático de Arraçoamento</h3>
+						<p>Com a temperatura da Água, o sistema calcula a quantidade correta de ração, automatizando os alimentadores e economizando recursos.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="video">
+			<div class="container">
+				<div class="row">
+					<div id="video">
+						<h2 class="sr-only">Vídeo Explicativo</h2>
+						<!-- <iframe id="video" src="https://www.youtube.com/embed/08AiMoL2JYw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe> -->
+						<!-- <iframe id="youtube" src="https://www.youtube.com/embed/8BgVJkcfhRU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe> -->
+						
+						<!-- <iframe id="player" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/8BgVJkcfhRU?rel=0&enablejsapi=1&origin=https:www//tatilfish.com.br" frameborder="0"></iframe> -->
+
+
+
+						<iframe id="player" width="640" height="360" src="https://www.youtube.com/embed/r-_DP7_4Qyo?rel=0&enablejsapi=1&origin=https:www//tatilfish.com.br" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="vantagens">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Vantagens da Plataforma TATILFish</h2>
+					</div>
+					<ul>
+						<!-- <li class="col-md-6">
+							<h3>Monitoramento de aeradores e alimentadores</h3>
+							<p>A TATILFish monitora o consumo elétrico dos equipamentos, certificando que estão funcionando corretamente e indicando manutenções preventivas.</p>
+						</li> -->
+						<li class="col-md-6">
+							<h3>Automação de equipamentos da piscicultura</h3>
+							<p>Os equipamentos conectados à TATILFish podem ser controlados a distância, de forma pontual ou através de agendamento, funcionando de forma automatizada.</p>
+						</li>
+						<li class="col-md-6">
+							<h3>Configuração da automação e visualização de dados</h3>
+							<p>O aplicativo TATILFish proporciona controle de todas as funcionalidades da plataforma de qualquer lugar assim como receber notificações de alertas em caso de situações que necessitem intervenção.</p>
+						</li>
+						<!-- <li class="col-md-6">
+							<h3>Solução como Serviço</h3>
+							<p>A TATILFish é oferecida como serviço, isto é, todos os equipamentos são alugados, evitando grandes investimentos iniciais e proporcionando um funcionamento mais confiável devido ao programa de manutenção preventiva.</p>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!--
+		<section class="depoimentos">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Depoimentos de Clientes TATILFish</h2>
+					</div>
+					<ul>
+						<li class="col-md-6">
+							<div class="row">
+								<div class="col-md-4">
+									<img src="imagens/Alisson-Schach.jpg" alt="Alisson Schach">		
+								</div>
+								<div class="col-md-8">
+									<h3>Alisson Schach</h3>
+									<p>Os equipamentos conectados à TATILFish podem ser controlados a distância, de forma pontual ou através de agendamento, funcionando de forma automatizada.</p>	
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="row">
+								<div class="col-md-4">
+									<img src="imagens/Alisson-Schach.jpg" alt="Alisson Schach">		
+								</div>
+								<div class="col-md-8">
+									<h3>Alisson Schach</h3>
+									<p>Os equipamentos conectados à TATILFish podem ser controlados a distância, de forma pontual ou através de agendamento, funcionando de forma automatizada.</p>	
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="row">
+								<div class="col-md-4">
+									<img src="imagens/Alisson-Schach.jpg" alt="Alisson Schach">		
+								</div>
+								<div class="col-md-8">
+									<h3>Alisson Schach</h3>
+									<p>Os equipamentos conectados à TATILFish podem ser controlados a distância, de forma pontual ou através de agendamento, funcionando de forma automatizada.</p>	
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="row">
+								<div class="col-md-4">
+									<img src="imagens/Alisson-Schach.jpg" alt="Alisson Schach">		
+								</div>
+								<div class="col-md-8">
+									<h3>Alisson Schach</h3>
+									<p>Os equipamentos conectados à TATILFish podem ser controlados a distância, de forma pontual ou através de agendamento, funcionando de forma automatizada.</p>	
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		-->
+		<section class="contato centro">
+			<div class="container">
+				<h2 id="contato">Entre em Contato</h2>
+				<!-- <p>Saiba mais sobre a TATILFish preenchendo o formulário abaixo:</p> -->
+				<p>Preencha os dados abaixo que entraremos em contato com você:</p>
+				
+				<form action="envia-email.php" method="post">
+					<input type="hidden" name="assunto" id="assunto" value="Registro de Interesse: TATILFish">
+					<div class="row">
+						<div class="col-md-2"></div>
+						<label class="col-md-8 empresa">
+							<span>Empresa:</span>
+							<input type="text" name="empresa" id="empresa" required>
+						</label>
+						<div class="col-md-2"></div>
+					</div>	
+					<div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
+							<div class="row">
+								<label class="col-md-6">
+									<span>Nome: <small>(obrigatório)</small></span>
+									<input type="text" name="nome" id="nome" required>
+								</label>
+								<label class="col-md-6">
+									<span>Telefone:  <small>(obrigatório)</small></span>
+									<input type="tel" name="telefone" id="telefone" required>
+								</label>
+							</div>
+							<div class="row">
+								<label class="col-md-4">
+									<span>Estado: <small>(obrigatório)</small></span>
+									<!-- <input type="text" name="estado" id="estado" required> -->
+									<select id="estado" name="estado" required>
+									    <option value="">Escolha</option>
+									    <option value="AC">Acre</option>
+									    <option value="AL">Alagoas</option>
+									    <option value="AP">Amapá</option>
+									    <option value="AM">Amazonas</option>
+									    <option value="BA">Bahia</option>
+									    <option value="CE">Ceará</option>
+									    <option value="DF">Distrito Federal</option>
+									    <option value="ES">Espírito Santo</option>
+									    <option value="GO">Goiás</option>
+									    <option value="MA">Maranhão</option>
+									    <option value="MT">Mato Grosso</option>
+									    <option value="MS">Mato Grosso do Sul</option>
+									    <option value="MG">Minas Gerais</option>
+									    <option value="PA">Pará</option>
+									    <option value="PB">Paraíba</option>
+									    <option value="PR">Paraná</option>
+									    <option value="PE">Pernambuco</option>
+									    <option value="PI">Piauí</option>
+									    <option value="RJ">Rio de Janeiro</option>
+									    <option value="RN">Rio Grande do Norte</option>
+									    <option value="RS">Rio Grande do Sul</option>
+									    <option value="RO">Rondônia</option>
+									    <option value="RR">Roraima</option>
+									    <option value="SC">Santa Catarina</option>
+									    <option value="SP">São Paulo</option>
+									    <option value="SE">Sergipe</option>
+									    <option value="TO">Tocantins</option>
+									    <option value="EX">Estrangeiro</option>
+									</select>
+								</label>
+								<label class="col-md-8">
+									<span>Cidade:</span>
+									<input type="text" name="cidade" id="cidade">
+								</label>
+								<!--<label class="col-md-4">
+									<span>Quanto é 3 + 5:</span>
+									<input type="number" name="resposta" id="resposta" required>
+								</label>-->
+								<!-- <label class="col-md-12">
+									<span>Mensagem:</span>
+									<textarea name="mensagem" id="mensagem"></textarea>
+								</label> -->
+								<div class="col-md-12">
+									<button formnovalidate class="registro_interesse" type="submit" id="enviar">Enviar</button>
+									<!-- <button class="registro_interesse" type="submit" id="enviar">Enviar</button> -->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div class="contatos">
+			<div>
+				<p>
+					<span><i class="fab fa-whatsapp"></i> <small>&#x28;&#x34;&#x33;&#x29;</small>&#x20;&#x39;&#x38;&#x34;&#x30;&#x32;&#x20;&#x2D;&#x20;&#x38;&#x31;&#x39;&#x34;</span>
+					<!-- <span><i class="fab fa-whatsapp"></i> <small>(43)</small> 99142 - 7591</span> -->
+				</p>
+				<!-- <p><span><i class="far fa-envelope"></i> &#x63;&#x6F;&#x6E;&#x74;&#x61;&#x74;&#x6F;&#x40;&#x74;&#x61;&#x74;&#x69;&#x6C;&#x66;&#x69;&#x73;&#x68;&#x2E;&#x63;&#x6F;&#x6D;&#x2E;&#x62;&#x72;</span></p> -->
+				<p class="whatsapp"><a href="https://wa.me/5543984028194"><i class="fab fa-whatsapp"></i></a></p>
+			</div>
+		</div>
+		<h2>TATILFish é um produto desenvolvido por:</h2>
+		<img src="imagens/logo-agrotatil.png" alt="Logo AgroTATIL Tecnologia no Agro">
+	</footer>
+
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGHZ4DM05G"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-ZGHZ4DM05G');
+	</script>	
+</body>
+</html>

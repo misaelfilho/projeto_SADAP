@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADAP - SISTEMA AGRÍCOLA DE AUTOMAÇÃO PRODUTIVA</title>
+    <link rel="shortcut icon" href="img/SADAP-HORIZONTAL - PNG.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="js/script.js" defer></script> -->
+</head>
+<body>
+    <header class="fundo_cabebalho">
+        <div class="cabecalho" data-anime="small">
+            <img id="img-logo" src="img/logo_sem_texto.png" alt="Image">
+        </div>
+        <div class="menu-container">
+            <nav class="menu">
+                <a class="hover-1" href="">HOME</a>
+                <a class="hover-1" href="">AUTOMAÇÃO</a>
+                <a class="hover-1" href="">SOBRE A SADAP</a>
+                <a class="hover-1" href="">CONTATO</a>
+                <label class="hover-1 show-btn" id="show-login" for="show" href=""><i class='fa fa-lock green-color'></i> LOGIN</label>
+
+                <div class="center" id="login-center">
+                    <input type="checkbox" id="show">
+                    <div class="container">
+                       <div class="text">
+                          Entrar no Sistema SADAP
+                       </div>
+                       <form action="#">
+                          <div class="data">
+                             <label>E-mail</label>
+                             <input type="text" name="email" id="email" onchange="validateEmail(email)" placeholder="seu@email.com" required>
+                          </div>
+                          <div class="data">
+                             <label>Senha</label>
+                             <input type="password" name="password" placeholder="Senha" required>
+                          </div>
+                          <div class="forgot-pass">
+                             <button type="button" id="recover-password-button" class="clear" disabled="false">Esqueceu a senha?</button>
+                          </div>
+                          <div class="btn">
+                             <button type="submit" class="solid" >login</button>
+                          </div>
+                          <div class="signup-link outline">
+                             Não é cadastrado? <a href="#" disabled="true">Cadastre-se</a>
+                          </div>
+                       </form>
+                    </div>
+                 </div>
+
+
+
+
+
+            </nav>
+        </div>
+        <div class="margin"></div>
+        <div class="intro">
+            <p>A SADAP traz uma solução para transformar propriedades ociosas em fonte de Renda</p>
+        </div>
+        <div id="btn-contato">
+            <!-- <input type="button" id="btn-contato" name="contato"> -->
+            <a href="index.html">Entre em Contato</a>
+        </div>
+    </header>
+    <main>
+        <div class="container-grid">
+            <div class="column-01">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+                <h5>Mauris consequat massa elit. Integer interdum hendrerit volutpat. Nam id risus dignissim, hendrerit orci at, placerat nulla. Donec faucibus, justo id iaculis tincidunt, nisl sapien commodo arcu, ac laoreet nunc massa id nulla. Nunc tellus turpis, viverra ac posuere fermentum, molestie et odio.</h5>
+                <h5>Sed eget lacus vel nunc pellentesque fermentum. Phasellus gravida diam nibh, eget interdum nisi dapibus quis. Etiam volutpat felis metus, vitae malesuada ligula viverra sed.</h5>
+            </div>
+            <div class="column-02">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+                <h5>Mauris consequat massa elit. Integer interdum hendrerit volutpat. Nam id risus dignissim, hendrerit orci at, placerat nulla. Donec faucibus, justo id iaculis tincidunt, nisl sapien commodo arcu, ac laoreet nunc massa id nulla. Nunc tellus turpis, viverra ac posuere fermentum, molestie et odio.</h5>
+                <h5>Sed eget lacus vel nunc pellentesque fermentum. Phasellus gravida diam nibh, eget interdum nisi dapibus quis. Etiam volutpat felis metus, vitae malesuada ligula viverra sed.</h5>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="formulario" class="formulario">
+            <h2>Envie sua mensagem</h2>
+            <p></p>
+            <p data-pm-slice="1 1 [&quot;bulletList&quot;,null,&quot;listItem&quot;,null]">DEIXE-NOS SUA INFORMAÇÃO e nós entraremos em contato com você.</p>
+            <p></p>
+            <form method="POST" action="index.html" accept-charset="UTF-8" id="formContact">
+                <input name="_session_key" type="hidden" value="czXazyCJbMM8GIZuCgcBbel6T3QYbFlDjMUD8bBi">
+                <input name="_token" type="hidden" value="yh1Lhbdpp2dzQw9VbROXWYAwDrsQCx8CWZ47o553">
+                <input name="captation_means" type="hidden" value="Contato">
+                <div class="inputs-form">
+                    <div class="form-group ">
+                        <input required="required" data-toggle="tooltip" placeholder="Nome" data-placement="top" data-trigger="focus" title="Nome" class="form-control" name="name" type="text">
+                    </div>
+                    <div class="form-group ctn-mail-phone">
+                        <input required="required" data-toggle="tooltip" placeholder="E-mail" data-placement="top" data-trigger="focus" title="E-mail" class="form-control" name="email" type="email">
+                    </div>
+                    <div class="form-group ctn-mail-phone">
+                        <input required="required" data-toggle="tooltip" placeholder="Telefone" data-placement="top" data-trigger="focus" title="Telefone" class="form-control" name="phone" type="phone" data-mask="(00) 00000-0000" maxlength="15" autocomplete="off">
+                    </div>
+                    <div class="form-group ">
+                        <input required="required" data-toggle="tooltip" placeholder="Assunto" data-placement="top" data-trigger="focus" title="Assunto" class="form-control" name="data__assunto__0" type="text">
+                    </div>
+                    <div class="form-group ">
+                        <textarea required="required" data-toggle="tooltip" data-placement="top" placeholder="Mensagem" data-trigger="focus" title="Mensagem" class="form-control" rows="3" name="message" cols="50"></textarea>
+                    </div>
+                    <div class="send text-center">
+                        <button data-type="send" autocomplete="off" id="btnSend" data-loading-text="Enviando..." type="submit" title="Enviar" class="btn btn-primary btn-block btn-lg text-uppercase">Enviar
+                        </button>
+                    </div>
+                </div>
+                <input type="hidden" name="css_token" value="e2375f55d78c2150a7848020cb4466a0">
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="inputs-form form-group">
+            <h2>ENTRE EM CONTATO</h2>
+            <h4>Prencha os dados abaixo que entraremos em contato:</h4>
+            <div class="contato-01">
+                <label>
+                    <span>Nome:</span>
+                    <input type="text" id="nome" name="nome" class="form-control">
+                </label>
+            </div>
+            <div class="contato-01">
+                <label>
+                    <span>E-mail:</span>
+                    <input type="email" id="email" name="email" class="form-control">
+                </label>
+                <label>
+                    <span>Telefone:</span>
+                    <input type="tel" id="telefone" name="telefone" class="form-control">
+                </label>
+            </div>
+            <div class="contato-01">
+                <label>
+                    <span>Estado:</span>
+                    <select name="estado" id="estado" class="form-control">
+                        <option value="">Selecione</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espirito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="EX">Exterior</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Cidade:</span>
+                    <input type="text" id="cidade" name="cidade" class="form-control">
+                </label>
+            </div>
+            <div class="contato-01">
+                <label>
+                    <span>Assunto:</span>
+                    <input type="text" id="assunto" name="assunto" size="750" class="form-control">
+                </label>
+            </div>
+            <div class="contato-01">
+                <label>
+                    <span>Menssagem:</span>
+                    <input type="text" id="menssagem" name="menssagem" size="450" class="form-control">
+                </label>
+            </div>
+            <div>
+                <button type="submit" id="enviar" class="registro_interesse">Solicitar Contato</button>
+            </div>
+        </div> -->
+
+
+
+        <!-- <div id="formulario">
+            <h2>Envie sua mensagem</h2>
+            <p>
+                </p><p data-pm-slice="1 1 [&quot;bulletList&quot;,null,&quot;listItem&quot;,null]">DEIXE-NOS SUA INFORMAÇÃO e nós entraremos em contato com você.</p>
+            <p></p>
+            <form method="POST" action="https://www.eqsengenharia.com.br/contato" accept-charset="UTF-8" id="formContact"><input name="_session_key" type="hidden" value="kxVE1XgcfQ8MSECMcFuOIjyFgn4Gh9C1mK06bgLu"><input name="_token" type="hidden" value="DniFHlunNMCC6GbHwjESeAS6D7uGcp8mXO1xzV4l">
+<input name="captation_means" type="hidden" value="Contato">
+    <div class="inputs-form">
+
+        <div class="form-group ">
+            <input required="required" data-toggle="tooltip" placeholder="Nome" data-placement="top" data-trigger="focus" title="Nome" class="form-control" name="name" type="text">
+        </div>
+
+        <div class="form-group ctn-mail-phone">
+            <input required="required" data-toggle="tooltip" placeholder="E-mail" data-placement="top" data-trigger="focus" title="E-mail" class="form-control" name="email" type="email">
+            <input required="required" data-toggle="tooltip" placeholder="Telefone" data-placement="top" data-trigger="focus" title="Telefone" class="form-control" name="phone" type="phone" data-mask="(00) 00000-0000" maxlength="15" autocomplete="off">
+        </div>
+
+
+        <div class="form-group ">
+            <input required="required" data-toggle="tooltip" placeholder="Assunto" data-placement="top" data-trigger="focus" title="Assunto" class="form-control" name="data__assunto__0" type="text">
+        </div>
+
+        <div class="form-group ">
+        <textarea required="required" data-toggle="tooltip" data-placement="top" placeholder="Mensagem" data-trigger="focus" title="Mensagem" class="form-control" rows="3" name="message" cols="50"></textarea>
+        </div>
+
+        <div class="send text-center">
+            <button data-type="send" autocomplete="off" id="btnSend" data-loading-text="Enviando..." type="submit" title="Enviar" class="btn btn-primary btn-block btn-lg text-uppercase">
+                Enviar
+            </button>
+        </div>
+    </div>
+<input type="hidden" name="css_token" value="e2375f55d78c2150a7848020cb4466a0"></form>
+        </div> -->
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="contatos">
+                <div>
+                    <p> <img class="icon-whatsapp" src="/icons/5302-whatsapp_102550.png" alt=""> (82) 99102-9697</p>
+                </div>
+                <div>
+                    <p> <img class="icon-email" src="/icons/iconfinder-email-4661594_122466.png" alt=""> email@email.com</p>
+                </div>
+            </div>
+            <div class="rede-social">
+                <p>intagram</p>
+                <p>facebook</p>
+            </div>
+            <div class="sobre-sadap">
+                <h2>é um produto desenvolvido por:</h2>
+                <img class="logo-bottom" src="img/SADAP-HORIZONTAL - PNG.png" alt="Logo SADAP">
+                <h5>SADAP - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            </div>
+        </div>
+    </footer>
+        <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+<!-- <section class="area-login">
+    <div class="login popup">
+        <div>
+            <img src="/img/logo_sem_texto.png" alt="">
+        </div>
+        <form method="POST">
+            <input type="text" name="nome" placeholder="nome de usuario" autofocus>
+            <input type="password" name="senha" placeholder="sua senha">
+            <input class="close-btn" type="submit" value="entrar">
+        </form>
+        <p>Ainda não tem uma conta?<a href="#">Criar conta</a></p>
+    </div>
+</section> -->
+
+
+<!-- <div class="center">
+    <input type="checkbox" id="show">
+    <label for="show" class="show-btn">View Form</label>
+    <div class="container">
+       <label for="show" class="close-btn fas fa-times" title="close"></label>
+       <div class="text">
+          Login Form
+       </div>
+       <form action="#">
+          <div class="data">
+             <label>Email or Phone</label>
+             <input type="text" required>
+          </div>
+          <div class="data">
+             <label>Password</label>
+             <input type="password" required>
+          </div>
+          <div class="forgot-pass">
+             <a href="#">Forgot Password?</a>
+          </div>
+          <div class="btn">
+             <div class="inner"></div>
+             <button type="submit">login</button>
+          </div>
+          <div class="signup-link">
+             Not a member? <a href="#">Signup now</a>
+          </div>
+       </form>
+    </div>
+ </div> -->
